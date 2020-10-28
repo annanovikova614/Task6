@@ -28,29 +28,35 @@ public class Main {
         return true;
     }
 
-    private static void printResult(double sum1, double sum2, double sum3, double res) {
+    private static void printResult(double sum1, double sum2, int n2, double sum3, int n3, double res) {
         System.out.printf("1) %.3f\n", sum1);
-        System.out.printf("2) %.3f\n", sum2);
-        System.out.printf("3) %.3f\n", sum3);
+        System.out.printf("2) %.3f - %d слагаемых\n", sum2, n2);
+        System.out.printf("3) %.3f - %d слагаемых\n", sum3, n3);
         System.out.printf("4) %.3f\n", res);
     }
 
     public static void calc(double x, int n, double e) {
         double a = 1;
         double sum1 = 0, sum2 = 0, sum3 = 0;
+        int n2 = 0, n3 = 0;
         for(int i = 1; i <= n || Math.abs(a) > e / 10; i++) {
-            if(i <= n) {
+            if(i <= n)
                 sum1 += a;
-            }
-            if(Math.abs(a) > e) {
+            if(Math.abs(sum2 - (sum2 + a)) > e) {
                 sum2 += a;
+                n2++;
             }
-            if(Math.abs(a) > e / 10) {
+            if(Math.abs(sum3 - (sum3 + a)) > e / 10) {
                 sum3 += a;
+                n3++;
             }
             a = - a * x * (i + 1) / i;
         }
-        double res = 1 / Math.pow(1 + x, 2);
-        printResult(sum1, sum2, sum3, res);
+        double res = calcRes(x);
+        printResult(sum1, sum2, n2, sum3, n3, res);
+    }
+
+    private static double calcRes(double x) {
+        return 1 / Math.pow(1 + x, 2);
     }
 }
