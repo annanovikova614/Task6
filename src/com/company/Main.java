@@ -1,5 +1,7 @@
 package com.company;
 
+package com.company;
+
 import java.util.Scanner;
 
 public class Main {
@@ -40,8 +42,9 @@ public class Main {
         double sum1 = 0, sum2 = 0, sum3 = 0;
         int n2 = 0, n3 = 0;
         for(int i = 1; i <= n || Math.abs(a) > e / 10; i++) {
-            if(i <= n)
+            if(i <= n) {
                 sum1 += a;
+            }
             if(Math.abs(sum2 - (sum2 + a)) > e) {
                 sum2 += a;
                 n2++;
