@@ -10,11 +10,9 @@ public class Main {
         double e = readVariable("e");
         double function = calculateFunction(x);
         double result[] = calculateSum(x, (int)n, e);
-
         if(!verifyVariableX(x)) {
             return;
         }
-
         printResult(x, n, e, function);
     }
 
