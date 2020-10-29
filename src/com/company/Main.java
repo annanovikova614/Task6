@@ -9,7 +9,7 @@ public class Main {
         double n = readVariable("n");
         double e = readVariable("e");
         double function = calculateFunction(x);
-        double result[] = calculateSum(x, (int) n, e);
+        double result[] = calculateSum(x, (int)n, e);
 
         if(!verifyVariableX(x)) {
             return;
@@ -33,7 +33,7 @@ public class Main {
     }
 
     private static void printResult(double x, double n, double e, double function) {
-        double result[] = calculateSum(x, (int) n, e);
+        double result[] = calculateSum(x, (int)n, e);
         System.out.printf("1) Значение функции равно %.5f", result[0]);
         System.out.println();
         System.out.printf("2) Значение функции при %.0f слагаемых равно %.5f", result[2], result[1]);
