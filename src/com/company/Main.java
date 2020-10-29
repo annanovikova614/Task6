@@ -46,22 +46,22 @@ public class Main {
     private static double[] calculateSum(double x, int n, double e) {
         double R = 1;
         double sum_n = 0, sum_e = 0, sum_e_10 = 0;
-        int n2 = 0, n3 = 0;
+        int n_e = 0, n_e_10 = 0;
         for(int i = 1; i <= n || Math.abs(R) > e / 10; i++) {
             if(i <= n) {
                 sum_n += R;
             }
             if(Math.abs(sum_e - (sum_e + R)) > e) {
                 sum_e += R;
-                n2++;
+                n_e++;
             }
             if(Math.abs(sum_e_10 - (sum_e_10 + R)) > e / 10) {
                 sum_e_10 += R;
-                n3++;
+                n_e_10++;
             }
             R = - R * x * (i + 1) / i;
         }
-        return new double[] {sum_n, sum_e, n2, sum_e_10, n3};
+        return new double[] {sum_n, sum_e, n_e, sum_e_10, n_e_10};
     }
 
     private static double calculateFunction(double x) {
