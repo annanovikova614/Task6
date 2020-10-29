@@ -15,7 +15,7 @@ public class Main {
             return;
         }
 
-        printResult(x, n, e, res);
+        printResult(x, n, e, function);
     }
 
     private static double readVariable(String string) {
