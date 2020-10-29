@@ -8,7 +8,7 @@ public class Main {
         double x = readVariable("x");
         double n = readVariable("n");
         double e = readVariable("e");
-        double res = calculateRes(x);
+        double function = calculateFunction(x);
         double result[] = calculateSum(x, (int) n, e);
 
         if(!verifyVariableX(x)) {
@@ -32,7 +32,7 @@ public class Main {
         return true;
     }
 
-    private static void printResult(double x, double n, double e, double res) {
+    private static void printResult(double x, double n, double e, double function) {
         double result[] = calculateSum(x, (int) n, e);
         System.out.printf("1) Значение функции равно %.5f", result[0]);
         System.out.println();
@@ -40,7 +40,7 @@ public class Main {
         System.out.println();
         System.out.printf("3) Значение функции при %.0f слагаемых равно %.5f", result[4], result[3]);
         System.out.println();
-        System.out.printf("4) Значение функции 1/(1+x)^2 равно %.5f", res);
+        System.out.printf("4) Значение функции 1/(1+x)^2 равно %.5f", function);
     }
 
     private static double[] calculateSum(double x, int n, double e) {
@@ -64,7 +64,7 @@ public class Main {
         return new double[] {sum_n, sum_e, n2, sum_e_10, n3};
     }
 
-    private static double calculateRes(double x) {
+    private static double calculateFunction(double x) {
         return 1 / Math.pow(1 + x, 2);
     }
 }
