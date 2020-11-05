@@ -43,35 +43,35 @@ public class Main {
     }
 
     private static double calculateSumOfNSlag(double x, int n) {
-        double slag = 1;
+        double r = 1;
         double sum = 0;
         for(int i = 1; i <= n; i++) {
             sum += slag;
-            slag = - slag * x * (i + 1) / i;
+            r = - r * x * (i + 1) / i;
         }
         return sum;
     }
 
     private static Result calculateEpsilonSum(double x, double e) {
-        double slag = 1;
+        double r = 1;
         double sum = 0;
         int n = 0;
-        while(Math.abs(sum - (sum + slag)) > e) {
-            sum += slag;
+        while(Math.abs(sum - (sum + r)) > e) {
+            sum += r;
             n++;
-            slag = - slag * x * (n + 1) / n;
+            r = - r * x * (n + 1) / n;
         }
         return new Result(n, sum);
     }
 
     private static Result calculateEpsilonSumOn10(double x, double e) {
-        double slag = 1;
+        double r = 1;
         double sum = 0;
         int n = 0;
-        while(Math.abs(sum - (sum + slag)) > e / 10) {
-            sum += slag;
+        while(Math.abs(sum - (sum + r)) > e / 10) {
+            sum += r;
             n++;
-            slag = - slag * x * (n + 1) / n;
+            r = - r * x * (n + 1) / n;
         }
         return new Result(n, sum);
     }
