@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        double x = readVariable(" значение (x)");
+        double x = readVariable("значение (x)");
         double n = readVariable("колличество слагаемых (n)");
         double e = readVariable("эпсилон (e)");
 
@@ -14,11 +14,11 @@ public class Main {
         }
 
         double function = calculateFunction(x);
-        double sumOfNSlag = calculateSumOfNSlag(x, (int)n);
-        Result resultEpsilon = calculateEpsilonSum(x, e);
+        double sumOfNTerm = calculateSumOfNTerm(x, (int)n);
+        Result resultEpsilonSum = calculateEpsilonSum(x, e);
         Result resultEpsilonSumOn10 = calculateEpsilonSumOn10(x, e);
 
-        printResult(sumOfNSlag, resultEpsilon, resultEpsilonSumOn10, function);
+        printResult(sumOfNTerm, resultEpsilonSum, resultEpsilonSumOn10, function);
     }
 
     private static double readVariable(String string) {
@@ -35,18 +35,18 @@ public class Main {
         return true;
     }
 
-    private static void printResult(double sumOfNSlag, Result resultEpsilon, Result resultEpsilonSumOn10, double function) {
-        System.out.printf("1) Значение функции равно %.5f\n", sumOfNSlag);
-        System.out.printf("2) Значение функции при %d слагаемых равно %.5f\n", resultEpsilon.n, resultEpsilon.sum);
+    private static void printResult(double sumOfNTerm, Result resultEpsilonSum, Result resultEpsilonSumOn10, double function) {
+        System.out.printf("1) Значение функции равно %.5f\n", sumOfNTerm);
+        System.out.printf("2) Значение функции при %d слагаемых равно %.5f\n", resultEpsilonSum.n, resultEpsilonSum.sum);
         System.out.printf("3) Значение функции при %d слагаемых равно %.5f\n", resultEpsilonSumOn10.n, resultEpsilonSumOn10.sum);
         System.out.printf("4) Значение функции 1/(1+x)^2 равно %.5f\n", function);
     }
 
-    private static double calculateSumOfNSlag(double x, int n) {
+    private static double calculateSumOfNTerm(double x, int n) {
         double r = 1;
         double sum = 0;
         for(int i = 1; i <= n; i++) {
-            sum += slag;
+            sum += r;
             r = - r * x * (i + 1) / i;
         }
         return sum;
